@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap");
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+    scrollbar-gutter: stable;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-family: var(--font-body);
+    background: var(--background);
+    color: var(--text-primary);
+}
+
+body:has(dialog[open]) {
+    overflow: hidden;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    line-height: 1.1;
+    font-weight: 700;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+:root {
+    /* Typography */
+    --font-heading: "Barlow Condensed", sans-serif;
+    --font-body: "Manrope", sans-serif;
+
+    /* Accent */
+    --accent: #8c2f39;
+    --accent-hover: #6f232c;
+
+    --accent-light: #d98a94;
+    --text-on-dark: #ffffff;
+
+    /* Background */
+    --background: #ffffff;
+    --background-secondary: #f5f0f0;
+    --background-dark: #14070b;
+
+    /* Gray scale */
+    --gray-100: #e5e5e5;
+    --gray-400: #a3a3a3;
+    --gray-600: #525252;
+
+    /* Text */
+    --text-primary: #1c1c1c;
+    --text-secondary: #737373;
+}
+
+/* Classes de utilidade */
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1420px) {
+    .container {
+        padding: 0 16px;
+    }
+}

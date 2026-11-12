@@ -1,0 +1,72 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding-top: 20px;
+    transition: padding-top 0.3s ease;
+}
+
+.header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px 10px 24px;
+    border: 1px solid rgb(255 255 255 / 0.18);
+    background: rgb(18 4 8 / 0.3);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 999px;
+    transition:
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.scrolled {
+    padding-top: 12px;
+}
+
+.scrolled nav {
+    background: rgb(18 4 8 / 0.8);
+    box-shadow: 0 8px 30px rgb(0 0 0 / 0.25);
+}
+
+.header nav img {
+    height: 40px;
+    width: auto;
+}
+
+.header nav ul {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-on-dark);
+}
+
+.header nav a {
+    display: block;
+    padding: 10px 18px;
+    border-radius: 999px;
+    transition: background-color 0.25s ease;
+}
+
+.header nav a:hover {
+    background: rgb(255 255 255 / 0.14);
+}
+
+.header nav a.cta {
+    background: var(--accent);
+}
+
+.header nav a.cta:hover {
+    background: var(--accent-hover);
+}
+
+@media (max-width: 720px) {
+    .header nav li:not(:last-child) {
+        display: none;
+    }
+}

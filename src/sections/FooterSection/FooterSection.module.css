@@ -1,0 +1,246 @@
+.footer {
+    padding-top: clamp(64px, 10vh, 120px);
+    background: var(--accent-hover);
+    color: var(--text-on-dark);
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(40px, 6vw, 96px);
+    align-items: start;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+    border-top: 1px solid rgb(255 255 255 / 0.18);
+}
+
+.contacts li {
+    border-bottom: 1px solid rgb(255 255 255 / 0.18);
+}
+
+.contacts li:last-child {
+    border-bottom: none;
+}
+
+.contactRow {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 16px;
+    align-items: center;
+    padding-block: 20px;
+}
+
+.contactLabel {
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgb(255 255 255 / 0.6);
+}
+
+.contactValue {
+    grid-column: 1;
+    font-size: clamp(1.125rem, 1.5vw + 0.75rem, 1.5rem);
+    font-weight: 500;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+    transition: translate 0.25s ease;
+}
+
+.contactArrow {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    color: rgb(255 255 255 / 0.5);
+    transition:
+        translate 0.25s ease,
+        color 0.25s ease;
+}
+
+a.contactRow:focus-visible {
+    outline: 2px solid var(--text-on-dark);
+    outline-offset: 4px;
+}
+
+@media (hover: hover) {
+    a.contactRow:hover .contactValue {
+        translate: 8px 0;
+    }
+
+    a.contactRow:hover .contactArrow {
+        translate: 3px -3px;
+        color: var(--accent-light);
+    }
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: clamp(24px, 3vw, 40px);
+    border-radius: 24px;
+    background: var(--background);
+    color: var(--text-primary);
+    box-shadow: 0 24px 48px rgb(0 0 0 / 0.25);
+}
+
+.formTitle {
+    font-size: 32px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.field input,
+.field textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--gray-100);
+    border-radius: 12px;
+    background: var(--background-secondary);
+    color: var(--text-primary);
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.field textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+    color: var(--gray-400);
+}
+
+.field input:hover,
+.field textarea:hover {
+    border-color: var(--gray-400);
+}
+
+.field input:focus,
+.field textarea:focus {
+    border-color: var(--accent);
+    background: var(--background);
+}
+
+.field input:user-invalid,
+.field textarea:user-invalid {
+    border-color: #dc2626;
+}
+
+.submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 28px;
+    border: none;
+    border-radius: 12px;
+    background: var(--accent);
+    color: var(--text-on-dark);
+    font-weight: 600;
+    transition:
+        background-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.submit svg {
+    transition: translate 0.25s ease;
+}
+
+.submit:disabled {
+    opacity: 0.7;
+    cursor: progress;
+}
+
+@media (hover: hover) {
+    .submit:hover {
+        background: var(--accent-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 12px 28px rgb(140 47 57 / 0.4);
+    }
+
+    .submit:hover svg {
+        translate: 3px -3px;
+    }
+}
+
+.bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px 32px;
+    margin-top: clamp(48px, 8vh, 80px);
+    padding-block: 24px;
+    border-top: 1px solid rgb(255 255 255 / 0.18);
+    font-size: 14px;
+    color: rgb(255 255 255 / 0.75);
+}
+
+.logo {
+    height: 36px;
+    width: auto;
+}
+
+.bottom nav ul {
+    display: flex;
+    gap: 24px;
+}
+
+.bottom nav a {
+    color: var(--text-on-dark);
+    transition: opacity 0.2s ease;
+}
+
+.bottom nav a:hover {
+    opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .submit,
+    .submit svg,
+    .contactText a,
+    .field input,
+    .field textarea {
+        transition: none;
+    }
+}

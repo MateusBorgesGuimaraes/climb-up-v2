@@ -1,0 +1,173 @@
+.card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: clamp(280px, 60vw, 400px);
+    padding: 12px;
+    border: 1px solid var(--accent-hover);
+    border-radius: 20px;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--image) center / cover no-repeat;
+    transition: transform 0.6s ease;
+}
+
+.glass {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px;
+    border: 1px solid rgb(255 255 255 / 0.18);
+    background: rgb(18 4 8 / 0.5);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 20px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.cardTitle {
+    color: var(--text-on-dark);
+    font-size: clamp(1.25rem, 4vw + 0.25rem, 2rem);
+    font-weight: 500;
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+}
+
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 20px;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.location p {
+    font-size: 15px;
+    color: var(--text-on-dark);
+}
+
+.difficulty {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+}
+
+.bars span {
+    width: 6px;
+    height: 6px;
+}
+
+.bars span:nth-child(2) {
+    height: 9px;
+}
+.bars span:nth-child(3) {
+    height: 12px;
+}
+.bars span:nth-child(4) {
+    height: 15px;
+}
+.bars span:nth-child(5) {
+    height: 18px;
+}
+
+.label {
+    font-size: 13px;
+    line-height: 1;
+    color: rgb(255 255 255 / 0.85);
+}
+
+.button {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: none;
+    border-radius: 999px;
+    background: var(--text-on-dark);
+    color: var(--accent);
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.button svg {
+    transition: rotate 0.2s ease;
+}
+
+.button:hover {
+    background: var(--accent);
+    color: var(--text-on-dark);
+}
+
+.button:hover svg {
+    rotate: 45deg;
+}
+
+.button:focus-visible {
+    outline: 2px solid var(--text-on-dark);
+    outline-offset: 3px;
+}
+
+@media (hover: hover) {
+    .card:hover::before {
+        transform: scale(1.05);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .card::before,
+    .button,
+    .button svg {
+        transition: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .card {
+        padding: 16px;
+        border-radius: 24px;
+    }
+
+    .glass {
+        gap: 16px;
+        padding: 16px 20px;
+        border-radius: 24px;
+    }
+
+    .info {
+        gap: 12px;
+    }
+
+    .button {
+        width: 48px;
+        height: 48px;
+    }
+}
